@@ -1,4 +1,4 @@
-{ All unreadable characters are Russian letters. 
+{All unreadable characters are Russian letters. 
 To read them, the file with the program, 
 the input and output files must have encoding number 866 "OEM - Russian".}
 
