@@ -22,8 +22,6 @@ PROCEDURE ShowDictionary(VAR Dict: WordDictionary; VAR L: Len; VAR Total: INTEGE
 
 IMPLEMENTATION
 
-VAR Ch: CHAR;
-
 
 
 FUNCTION LowerCaseEnglishRussian(VAR Ch: CHAR): CHAR;
@@ -139,10 +137,8 @@ BEGIN
       IF NewName <> ''
       THEN
         BEGIN
-          WRITELN(OUTPUT, 'word ', I, ' read');
           Dict[I].Name := LowerCase(NewName);
           Dict[I].NumberOfOccurrences := 1;
-          WRITELN(OUTPUT, 'word ', I, ' added');
           I := I + 1;
           IF EOLN(F) AND NOT EOF(F)
           THEN
@@ -231,14 +227,13 @@ PROCEDURE ShowDictionary(VAR Dict: WordDictionary; VAR L: Len; VAR Total: INTEGE
 VAR
   I: Len;
 BEGIN
+  WRITELN(F, L - 1, ' different words');
   FOR I := 1 TO L
   DO
-    IF Dict[I].Name <> ''
-    THEN
-      BEGIN
-        WRITELN(F, Dict[I].Name, ' ', Dict[I].NumberOfOccurrences);
-        Total := Total + Dict[I].NumberOfOccurrences
-      END;
+    BEGIN
+      WRITELN(F, Dict[I].Name, ' ', Dict[I].NumberOfOccurrences);
+      Total := Total + Dict[I].NumberOfOccurrences
+    END;
   WRITELN(F, Total, ' words totally')
 END;
 

@@ -1,15 +1,7 @@
-UNIT RGR1;
+PROGRAM CountWords;
 
-
-
-INTERFACE
 USES
-  WorkWithDictionary;
-
-IMPLEMENTATION
-VAR
-  InputFile, OutputFile: TEXT;
+  Counter;
 BEGIN
-  ReadFromFile();
-  WriteToFile();
+  Counter.CountWords();
 END.
